@@ -22,7 +22,7 @@ def transform_csv(*args, **kwargs):
     with open(read_csv_path, 'r') as file_to_read:
         reader = csv.reader(file_to_read, delimiter='|')
         with open(write_csv_path, 'w') as file_to_write:
-            writer = csv.writer(file_to_write, delimiter=',')
+            writer = csv.writer(file_to_write, delimiter=',', lineterminator='\n')
             if not kwargs.get('header', True):
                 next(reader)
             for row_readed in reader:
